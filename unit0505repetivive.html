@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Loop</title>
+</head>
+<body>
+    <h1>存錢桶</h1>
+    <hr>
+    <p>第1天存1元,第2天存2元,第3天存3元,....第10天存10元.</p>
+    <img src="images/pig.png" onclick="pig()">
+    <p id="result"></p>
+
+    <script>
+
+        function pig(){
+            var sum=0;
+            //r=document.getElementById('result');
+            r=document.querySelector('#result');
+
+            r.innerHTML='';
+
+            for(var i=1;i<=10;i++){ //i=1起始值,i<=10終止值,i++為i=i+1
+                r.innerHTML +="第" + i + "天: " +sum + "+" + i + "=";
+                sum +=i;    //sum=sum+i
+                r.innerHTML +=sum + "<br>"
+            }
+       
+        }
+
+    </script>
+
+</body>
+</html>

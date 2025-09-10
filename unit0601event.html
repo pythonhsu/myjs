@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS nest loop,event</title>
+</head>
+<body>
+    <h1>99乘法表</h1>
+    <hr>
+    <p id="result">目前的值</p>
+
+    <style>
+        table{
+            width: 100%;
+            border: 8px gold solid;
+            border-collapse: collapse;  /* 預設為有間隙*/
+        }
+
+        td{
+            border: 1px silver solid;
+            padding: 1.2em;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        k=0;
+
+        document.write("<table>");
+        //outer
+        for(var i=1;i<=9;i++){
+            document.write("<tr onmouseover='setTrGB(this)' onmouseout='clearTrGB(this)'>");
+            //inner
+            for(var j=1;j<=9;j++){
+                k=i*j;
+                document.write("<td onmouseenter='setTdFont(this)' onmouseleave='clearTdFont(this)'>" +i+ "x" + j + "=" + k + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+        //設定列的背景
+        function setTrGB(obj){
+            obj.style.backgroundColor='yellowgreen';
+        }
+
+        //移除列的背景
+        function clearTrGB(obj){
+            obj.style.backgroundColor='transparent';            
+        }
+
+         //設定格子文字的色彩
+        function setTdFont(obj){
+            obj.style.color='red';
+            obj.style.cursor='pointer';
+            document.getElementById('result').innerHTML=obj.innerHTML;
+        }
+
+        //還原格子文字的色彩
+        function clearTdFont(obj){
+            obj.style.color='inherit';            
+        }
+    </script>
+
+</body>
+</html>

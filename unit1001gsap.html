@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <title>GSAP</title>
+    <style>
+    .demo {
+      width: 100px;
+      height: 100px;
+      background: yellowgreen;
+      margin: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo"></div>
+
+  <script>
+    gsap.to(".demo", {
+      x: 300,
+      rotation: 360,
+      duration: 5,
+      ease: "elastic.out"
+    });
+  </script>
+</body>
+</html>

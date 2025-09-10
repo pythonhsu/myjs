@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript sessionStorage</title>
+</head>
+<body>
+
+        <input type="number" id="temp" placeholder="Enter Temperature" ><br>
+        <input type="number" id="humidity" placeholder="Enter Humidity"><br>
+        <button onclick="setData()">SET</button>
+        <button onclick="getData()">GET</button>    
+        <button onclick="myClear()">CLEAR</button>  
+        <div id="demo"> </div>  
+
+        <a href="unit1104storage.html">Show sessionStorage Data</a>
+
+        <script>
+            /*
+            
+            Web Storage API ,提供了瀏覽器儲存 key/value pair的機制
+            Web Storage 內部2程機制:            
+            sessionStorage :
+            資料一直儲存到瀏覽器或tab 關閉為止
+
+
+            localStorage:
+            在瀏覽器關閉並重新打開,仍然存在
+            存儲沒有過期日期的資料
+            只能透JS, 或清除瀏覽器緩衝/本地端的資料清除            
+            */
+
+            function setData(){
+                window.sessionStorage.setItem('temp',temp.value);
+                window.sessionStorage.setItem('humidity',humidity.value);
+                window.alert("sessionStorage SET OK!! ");
+            }
+
+            function getData(){
+                var t=window.sessionStorage.getItem('temp');
+                var h=window.sessionStorage.getItem('humidity');
+                demo.innerHTML=`温度：${t}<br>
+                                濕度：${h}<br>`
+            }
+
+            function myClear(){
+                window.sessionStorage.clear()
+                window.alert("sessionStorage Clear OK!");
+            }
+
+        </script>
+    
+</body>
+</html>

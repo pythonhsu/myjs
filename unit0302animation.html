@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS animation</title>
+    <style>
+
+        /*定義動畫*/
+        @keyframes moveRight{
+            0%{
+                transform: translateX(0);
+            }
+            50%{
+                transform: translateX(200px); /*移動到200px*/
+            }
+            100%{
+                transform: translateX(0);   /*回到原點*/
+            }
+        }
+
+        .animated{
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+
+            /*使用動畫效果,1次2秒,以ease-in-out 的速度,無限重複*/
+            animation: moveRight 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>    
+    <div class="animated"></div>
+</body>
+</html>

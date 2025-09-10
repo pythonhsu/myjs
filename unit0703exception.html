@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Excepiton (例外處理)</title>
+</head>
+<body>
+    <h1>JavaScript async and await</h1>
+    <hr>
+
+    <script>
+
+        /*
+        在js中,async 和await 要擷取資料時,要等待promise,必須要使用非同步操作
+        將自動傳回一個promise
+        await 一定要置於async 函數內
+        */
+
+         //建立一個非同步(async)的函數
+         async function fetchGovData(){
+
+            try{
+                //等待fetch 請求完成
+                let response= await fetch('https://apiservice.mol.gov.tw/OdService/download/A17000000J-030243-YTl');               
+
+                //等待回應解析為JSON 
+                let data=await response.json();
+                console.log(data);
+                document.write('擷取資料成功');
+
+            }catch(error){
+                //如果請求過程中發生錯誤,捕捉錯誤並顯示出來
+                console.error("Error:",error);    
+            }
+
+            
+         }
+
+         fetchGovData();
+
+    </script>
+   
+    
+    
+</body>
+</html>

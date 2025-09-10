@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <svg id="mySVG" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+    <!-- 這裡將動態添加圓形 -->
+    </svg>
+
+    <script>
+    const svg = document.getElementById('mySVG');
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    
+    // 設置圓形的屬性
+    circle.setAttribute('cx', '250');
+    circle.setAttribute('cy', '250');
+    circle.setAttribute('r', '50');
+    circle.setAttribute('fill', 'yellow');
+    
+    // 將圓形添加到 SVG 中
+    svg.appendChild(circle);
+
+
+    let x = 50;
+    function animate() {
+        x += 2;
+        circle.setAttribute('cx', x);        
+        if (x < 450) {
+        requestAnimationFrame(animate);  // 繼續動畫
+        }
+    }
+
+    animate();  // 開始動畫
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Component 儲存狀態</title>
+</head>
+<body>
+  <color-picker></color-picker>
+
+  <script>
+    class ColorPicker extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+
+      connectedCallback() {
+        const savedColor = localStorage.getItem('color') || '#000000';
+        this.shadowRoot.innerHTML = `
+          <input type="color" value="${savedColor}">
+        `;
+        this.shadowRoot.querySelector('input').addEventListener('input', (e) => {
+          localStorage.setItem('color', e.target.value);
+        });
+      }
+    }
+
+    customElements.define('color-picker', ColorPicker);
+  </script>
+</body>
+</html>

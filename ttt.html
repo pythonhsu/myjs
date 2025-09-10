@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>互動式按鈕</title>
+</head>
+<body>
+  <interactive-button></interactive-button>
+
+  <script>
+    class InteractiveButton extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+
+      connectedCallback() {
+        this.shadowRoot.innerHTML = `
+          <button>Click me</button>
+        `;
+        this.shadowRoot.querySelector('button').addEventListener('click', () => {
+          alert('Button clicked!');
+        });
+      }
+    }
+
+    customElements.define('interactive-button', InteractiveButton);
+  </script>
+</body>
+</html>
